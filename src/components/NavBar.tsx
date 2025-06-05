@@ -80,7 +80,7 @@ export function NavbarSimple() {
           size="medium"
           className="mr-4 cursor-pointer py-1.5 bg-clip-text text-transparent bg-gradient-to-r from-primary-60 via-primary-70 to-primary-80 hover:scale-105 transition-transform duration-300 font-bold"
         >
-          Portfolio
+          Kunal Jagdeep Tolani
         </HandwrittenHeading>
         <div className="hidden lg:block">
           <NavList />
