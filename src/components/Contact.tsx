@@ -90,7 +90,7 @@ export function Contact() {
                 <span className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary-30/20 via-secondary-30/20 to-accent-30/30 blur-[20px] sm:blur-[30px] group-hover/title:blur-[25px] sm:group-hover/title:blur-[40px] transition-all duration-500"></span>
                 <span className="relative">
                   <span className="material-icons text-3xl sm:text-4xl lg:text-5xl text-accent-50 absolute -left-8 sm:-left-12 lg:-left-16 top-1/2 -translate-y-1/2 group-hover/title:rotate-12 transition-transform duration-500" aria-hidden="true">mail</span>
-                  Get in Touch
+          Get in Touch
                 </span>
               </span>
             </HandwrittenHeading>
@@ -121,7 +121,7 @@ export function Contact() {
             <div className="space-y-6 sm:space-y-8">
               <Typography variant="paragraph" className="text-base sm:text-lg text-gray-800 transform rotate-[0.5deg]" {...sharedProps}>
                 I'm always open to discussing new opportunities, tech innovations, or potential collaborations. Whether it's about software engineering, design systems, or data analytics, I'd love to connect! Feel free to reach out through any of the following channels or use the contact form below.
-              </Typography>
+            </Typography>
               <div className="flex flex-wrap gap-6 sm:gap-8">
                 <a 
                   href="mailto:kunaltolani17@gmail.com"
@@ -137,7 +137,7 @@ export function Contact() {
                   <span className="material-icons text-2xl sm:text-3xl group-hover/location:rotate-12 transition-transform duration-500 text-accent-50" aria-hidden="true">location_on</span>
                   <Typography variant="paragraph" className="text-base sm:text-lg" {...sharedProps}>
                     Dublin, Ireland (GMT/IST)
-                  </Typography>
+                </Typography>
                 </div>
               </div>
               <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -176,22 +176,22 @@ export function Contact() {
                   <label htmlFor="name">Your Name</label>
                 </Typography>
                 <div className="relative">
-                  <Input
-                    type="text"
+                <Input
+                  type="text"
                     id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                     className="!border-2 !border-surface-container-high focus:!border-primary-60 bg-white/50 text-gray-900 rounded-extra-large !px-4 !py-2"
-                    labelProps={{
+                  labelProps={{
                       className: "text-gray-600 peer-focus:text-primary-60",
                     }}
                     containerProps={{
                       className: "group-hover:scale-[1.02] transition-transform duration-300",
-                    }}
-                    crossOrigin={undefined}
+                  }}
+                  crossOrigin={undefined}
                     {...sharedProps}
-                  />
+                />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-30/0 via-primary-30/10 to-primary-30/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
                 </div>
               </div>
@@ -202,32 +202,32 @@ export function Contact() {
                   <label htmlFor="email">Your Email</label>
                 </Typography>
                 <div className="relative">
-                  <Input
-                    type="email"
+                <Input
+                  type="email"
                     id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                     className="!border-2 !border-surface-container-high focus:!border-primary-60 bg-white/50 text-gray-900 rounded-extra-large !px-4 !py-2"
-                    labelProps={{
+                  labelProps={{
                       className: "text-gray-600 peer-focus:text-primary-60",
                     }}
                     containerProps={{
                       className: "group-hover:scale-[1.02] transition-transform duration-300",
-                    }}
-                    crossOrigin={undefined}
+                  }}
+                  crossOrigin={undefined}
                     {...sharedProps}
-                  />
+                />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-30/0 via-primary-30/10 to-primary-30/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
                 </div>
               </div>
-            </div>
+              </div>
 
             <div className="space-y-2 group">
               <Typography variant="h6" className="text-sm sm:text-base font-medium text-primary-60 flex items-center gap-2" {...sharedProps}>
                 <span className="material-icons text-lg sm:text-xl text-accent-50 group-hover:rotate-12 transition-transform duration-500" aria-hidden="true">message</span>
                 <label htmlFor="message">Your Message</label>
-              </Typography>
+                </Typography>
               <div className="relative">
                 <Textarea
                   id="message"
@@ -245,7 +245,7 @@ export function Contact() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-30/0 via-primary-30/10 to-primary-30/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
               </div>
-            </div>
+              </div>
 
             <div className="flex justify-center pt-4">
               <Button
@@ -256,8 +256,8 @@ export function Contact() {
                 Send Message
               </Button>
             </div>
-          </form>
-        </Card>
+            </form>
+          </Card>
       </div>
     </div>
   );

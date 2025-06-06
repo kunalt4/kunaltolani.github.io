@@ -92,7 +92,7 @@ export function About() {
                 <span className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary-30/20 via-secondary-30/20 to-accent-30/30 blur-[20px] sm:blur-[30px] group-hover/title:blur-[25px] sm:group-hover/title:blur-[40px] transition-all duration-500"></span>
                 <span className="relative">
                   <span className="material-icons text-3xl sm:text-4xl lg:text-5xl text-accent-50 absolute -left-8 sm:-left-12 lg:-left-16 top-1/2 -translate-y-1/2 group-hover/title:rotate-12 transition-transform duration-500" aria-hidden="true">person_outline</span>
-                  About Me
+          About Me
                 </span>
               </span>
             </HandwrittenHeading>
@@ -121,7 +121,7 @@ export function About() {
                     A Bit About Me
                     <div className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 bg-accent-50/30 rounded-full transform -rotate-2"></div>
                   </span>
-                </Typography>
+            </Typography>
                 <Typography variant="paragraph" className="text-base sm:text-lg lg:text-xl text-gray-800 leading-relaxed relative" {...sharedProps}>
                   <span className="relative inline-block mb-4 sm:mb-6">
                     <span className="absolute -inset-1 bg-primary-30/5 rounded-xl -rotate-1"></span>
@@ -142,7 +142,7 @@ export function About() {
                     <span className="absolute -inset-1 bg-primary-30/5 rounded-xl rotate-[0.5deg]"></span>
                     <span className="relative">I'm particularly interested in building efficient, scalable systems and have experience with both frontend and backend development. My work involves everything from designing microservices architectures to creating intuitive user interfaces.</span>
                   </span>
-                </Typography>
+            </Typography>
               </div>
 
               {/* Education Section - Improved mobile layout */}
@@ -150,7 +150,7 @@ export function About() {
                 <Typography variant="h6" className="text-lg sm:text-xl font-semibold mb-6 sm:mb-8 text-primary-60 flex items-center gap-3 sm:gap-4 group/title transform rotate-1" {...sharedProps}>
                   <span className="material-icons text-2xl sm:text-3xl group-hover/title:rotate-12 transition-transform duration-500 text-accent-50" aria-hidden="true">school</span>
                   <span className="relative">
-                    Education
+                Education
                     <div className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 bg-accent-50/30 rounded-full transform rotate-1"></div>
                   </span>
                 </Typography>
@@ -196,12 +196,12 @@ export function About() {
                     Tech Stack
                     <div className="absolute -bottom-2 left-0 w-full h-1 bg-accent-50/30 rounded-full transform -rotate-1"></div>
                   </span>
-                </Typography>
+            </Typography>
                 <div className="space-y-12">
                   {Object.entries(techStack).map(([category, skills], categoryIndex) => (
                     <div key={category} className="space-y-6">
-                      <Typography 
-                        variant="h6" 
+                    <Typography
+                      variant="h6"
                         className="text-lg font-medium text-primary-60 border-b border-primary-60/20 pb-2 transform" 
                         style={{ transform: `rotate(${categoryIndex % 2 === 0 ? '1deg' : '-1deg'})` }}
                         {...sharedProps}
@@ -218,20 +218,20 @@ export function About() {
                             <div className="flex items-center gap-3">
                               <span className="w-2 h-2 rounded-full bg-primary-60 group-hover/skill:scale-150 transition-transform duration-300"></span>
                               <Typography variant="h6" className="text-base font-medium text-primary-60" {...sharedProps}>
-                                {skill.name}
-                              </Typography>
+                      {skill.name}
+                    </Typography>
                             </div>
                             <Typography variant="small" className="text-gray-700 text-sm ml-5" {...sharedProps}>
                               {skill.description}
                             </Typography>
-                          </div>
+                  </div>
                         ))}
-                      </div>
-                    </div>
-                  ))}
+                  </div>
                 </div>
-              </div>
-            </Card>
+              ))}
+                </div>
+            </div>
+          </Card>
           </div>
         </div>
       </div>
