@@ -5,16 +5,24 @@ import {
   Input,
   Textarea,
   Button,
+  Alert,
 } from "@material-tailwind/react";
 import { HandwrittenHeading } from "./HandwrittenHeading";
 import { OrganicBackground } from "./OrganicBackground";
+import { sendEmail, type ContactFormData } from "../services/emailService";
 
 export function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     message: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
   const sharedProps = {
     placeholder: "",
@@ -32,8 +40,43 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically integrate with an email service
-    console.log("Form submitted:", formData);
+    
+    // Validate form
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please fill in all fields.'
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const success = await sendEmail(formData);
+      
+      if (success) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you! Your message has been sent successfully. I\'ll get back to you soon!'
+        });
+        // Clear form
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: 'Failed to send message. Please try again or contact me directly at kunal@kunaltolani.com'
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'An error occurred. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -124,13 +167,13 @@ export function Contact() {
             </Typography>
               <div className="flex flex-wrap gap-6 sm:gap-8">
                 <a 
-                  href="mailto:kunaltolani17@gmail.com"
+                  href="mailto:kunal@kunaltolani.com"
                   className="flex items-center text-primary-60 gap-3 sm:gap-4 group/email hover:text-primary-50 transition-colors transform -rotate-[0.5deg]"
                   aria-label="Send me an email"
                 >
                   <span className="material-icons text-2xl sm:text-3xl group-hover/email:rotate-12 transition-transform duration-500 text-accent-50" aria-hidden="true">email</span>
                   <Typography variant="paragraph" className="text-base sm:text-lg group-hover/email:underline" {...sharedProps}>
-                    kunaltolani17@gmail.com
+                    kunal@kunaltolani.com
                   </Typography>
                 </a>
                 <div className="flex items-center text-primary-60 gap-3 sm:gap-4 group/location hover:text-primary-50 transition-colors transform rotate-[0.5deg]">
@@ -168,6 +211,30 @@ export function Contact() {
 
         {/* Contact Form Card - Improved mobile layout */}
         <Card className="p-6 sm:p-8 lg:p-10 shadow-level3 hover:shadow-level5 transition-all duration-500 bg-white/90 backdrop-blur-sm border border-surface-container-high rounded-[20px] sm:rounded-[30px_60px_30px_60px] hover:rounded-[60px_30px_60px_30px] overflow-hidden animate-slide-up mb-6 sm:mb-8" {...cardProps}>
+          {/* Status Alert */}
+          {submitStatus.type && (
+            <div className="mb-6 relative">
+              <Alert
+                color={submitStatus.type === 'success' ? 'green' : 'red'}
+                className="pr-12"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="material-icons text-lg">
+                    {submitStatus.type === 'success' ? 'check_circle' : 'error'}
+                  </span>
+                  {submitStatus.message}
+                </div>
+              </Alert>
+              <button
+                onClick={() => setSubmitStatus({ type: null, message: '' })}
+                className="absolute top-3 right-3 text-white hover:text-gray-200 transition-colors"
+                aria-label="Close alert"
+              >
+                <span className="material-icons text-lg">close</span>
+              </button>
+            </div>
+          )}
+          
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-2 group">
@@ -250,10 +317,18 @@ export function Contact() {
             <div className="flex justify-center pt-4">
               <Button
                 type="submit"
-                className="bg-primary-60 text-white px-6 py-3 rounded-full hover:bg-primary-70 transition-all duration-300 shadow-level2 hover:shadow-level3 hover:scale-105"
+                disabled={isSubmitting}
+                className={`${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-primary-60 hover:bg-primary-70 hover:scale-105'
+                } text-white px-6 py-3 rounded-full transition-all duration-300 shadow-level2 hover:shadow-level3 flex items-center gap-2`}
                 {...sharedProps}
               >
-                Send Message
+                {isSubmitting && (
+                  <span className="material-icons text-lg animate-spin">refresh</span>
+                )}
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </div>
             </form>
