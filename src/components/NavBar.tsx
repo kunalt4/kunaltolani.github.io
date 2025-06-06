@@ -25,14 +25,14 @@ function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {navItems.map((item) => (
-        <Typography
+      <Typography
           key={item.href}
-          as="li"
-          variant="small"
-          color="blue-gray"
-          className="p-1 font-medium"
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-medium"
           {...defaultProps}
-          placeholder=""
+        placeholder=""
         >
           <a 
             href={item.href} 
@@ -42,8 +42,8 @@ function NavList() {
             <HandwrittenHeading size="small" className="transform hover:rotate-[0.5deg] transition-transform duration-300">
               {item.label}
             </HandwrittenHeading>
-          </a>
-        </Typography>
+        </a>
+      </Typography>
       ))}
     </ul>
   );
