@@ -3,7 +3,7 @@ import { Typography, Button } from "@material-tailwind/react";
 import { ResumeModal } from "./ResumeModal";
 import { OrganicBackground } from "./OrganicBackground";
 import { HandwrittenHeading } from "./HandwrittenHeading";
-import profileImage from "../assets/_I2A7818b (1).jpg";
+import profileImage from "../assets/profile-image.jpg";
 
 export function Hero() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
