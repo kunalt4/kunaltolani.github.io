@@ -142,6 +142,22 @@ export function About() {
                     <span className="absolute -inset-1 bg-primary-30/5 rounded-xl rotate-[0.5deg]"></span>
                     <span className="relative">I'm particularly interested in building efficient, scalable systems and have experience with both frontend and backend development. My work involves everything from designing microservices architectures to creating intuitive user interfaces.</span>
                   </span>
+                  <br /><br />
+                  <span className="relative inline-block">
+                    <span className="absolute -inset-1 bg-accent-30/5 rounded-xl -rotate-[0.25deg]"></span>
+                    <span className="relative">When I'm not coding, I enjoy spending time with my amazing wife Bhavya, a PhD candidate in Economics at Trinity College Dublin researching development economics, financial inclusion, and gender empowerment. You can learn about her research at{' '}
+                      <a 
+                        href="https://bhavyashrivastava.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-accent-50 hover:text-accent-60 underline decoration-accent-50/30 hover:decoration-accent-60 underline-offset-2 transition-all duration-300 group/wife"
+                      >
+                        <span className="group-hover/wife:rotate-2 inline-block transition-transform duration-300">bhavyashrivastava.com</span>
+                        <span className="material-icons text-sm ml-1 align-middle group-hover/wife:rotate-12 transition-transform duration-300">favorite</span>
+                      </a>
+                      .
+                    </span>
+                  </span>
             </Typography>
               </div>
 
