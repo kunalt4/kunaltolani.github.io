@@ -9,6 +9,7 @@ module.exports = withMT({
   theme: {
     extend: {
       fontFamily: {
+        'space-grotesk': ['Space Grotesk', 'sans-serif'],
         'playfair': ['Playfair Display', 'serif'],
         'handwritten': ['Shadows Into Light', 'cursive'],
         'marker': ['Permanent Marker', 'cursive'],
@@ -63,6 +64,11 @@ module.exports = withMT({
           '99': '#2D0B11',
           '100': '#000000',
         },
+        // Campaign palette
+        'ink': '#111827',
+        'chalk': '#F9FAFB',
+        'crimson': '#E63946',
+        'muted': '#6B7280',
         // Surface colors with lighter tints
         'surface': {
           'dim': '#FFFFFF',

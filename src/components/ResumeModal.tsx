@@ -41,8 +41,8 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
 
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/Kunal Resume 2024.pdf';
-    link.download = 'Kunal Resume 2024.pdf';
+    link.href = '/Kunal 2026 Resume.pdf';
+    link.download = 'Kunal 2026 Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -52,19 +52,15 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
     <Dialog
       open={open}
       handler={onClose}
-      className="bg-surface-container p-0 max-w-5xl w-[95vw] h-[90vh] overflow-hidden rounded-[30px] sm:rounded-[40px_20px_50px_30px] hover:rounded-[30px_50px_20px_40px] shadow-level5 transition-all duration-500 border border-primary-80/20 backdrop-blur-sm group"
+      className="bg-white p-0 max-w-5xl w-[95vw] h-[90vh] overflow-hidden rounded-xl shadow-level5 border border-gray-200"
       {...sharedProps}
       dismiss={{ outsidePress: false }}
     >
-      <div className="relative w-full h-full flex flex-col bg-gradient-to-br from-surface-container-low/50 to-surface-container-high/50">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-30/0 via-primary-30/5 to-primary-30/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 animate-shimmer"></div>
-        
-        {/* Header with controls - Simplified */}
-        <div className="flex items-center justify-between p-3 sm:p-4 lg:p-6 border-b border-primary-80/10 backdrop-blur-sm">
+      <div className="relative w-full h-full flex flex-col bg-white">
+        {/* Header with controls */}
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-gray-200">
           <div className="flex items-center gap-2 sm:gap-4">
-            <HandwrittenHeading size="medium" className="text-primary-80">
-              Resume
-            </HandwrittenHeading>
+            <h2 className="font-space-grotesk font-bold text-lg text-ink">Resume</h2>
 
             {numPages > 1 && (
               <div className="flex items-center gap-2">
@@ -144,7 +140,7 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
             )}
 
             <Document
-              file="/Kunal Resume 2024.pdf"
+              file="/Kunal 2026 Resume.pdf"
               onLoadSuccess={onDocumentLoadSuccess}
               onLoadError={onDocumentLoadError}
               loading={null}

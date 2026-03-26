@@ -14,7 +14,7 @@ export function HandwrittenHeading({ children, className = '', size = 'large' }:
   };
 
   return (
-    <div className={`font-shadows-into-light ${sizeClasses[size]} ${className}`}>
+    <div className={`font-space-grotesk ${sizeClasses[size]} ${className}`}>
       {children}
     </div>
   );
