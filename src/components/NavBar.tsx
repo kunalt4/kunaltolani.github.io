@@ -57,7 +57,7 @@ export function NavbarSimple() {
 
   return (
     <Navbar
-      className="mx-auto max-w-full px-6 py-4 bg-ink border-0 border-b border-gray-800 shadow-none rounded-none"
+      className="mx-auto max-w-full px-6 py-4 bg-ink border-0 border-b border-gray-800 shadow-none rounded-none sticky top-0 z-50"
       {...defaultProps}
       placeholder=""
     >
